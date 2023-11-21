@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { HashLink } from 'react-router-hash-link';
 import { BrowserRouter as Router } from "react-router-dom";
 import styled from 'styled-components';
-import logo from '../assets/img/logo.svg';
+import logo from '../assets/img/logo.png';
 
 const StyledNavbar = styled(Navbar)`
   &.scrolled {
     background-color: red;
   }
-  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 `;
 
 const StyledNav = styled(Nav)`
@@ -24,13 +30,6 @@ const StyledNavLink = styled(Nav.Link)`
   padding: 10px;
 `;
 
-const StyledButton = styled.button`
-  background-color: black;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-`;
 
 const StyledDiv = styled.div`
   align-items: center;
@@ -72,14 +71,8 @@ const NavBar = () => {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <StyledNav className="ms-auto">
-              <StyledNavLink href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</StyledNavLink>
               <StyledNavLink href="#painel" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Painel</StyledNavLink>
             </StyledNav>
-            <span className="navbar-text">
-              <HashLink to='#connect'>
-                <StyledButton><span>teste</span></StyledButton>
-              </HashLink>
-            </span>
           </Navbar.Collapse>
         </Container>
       </StyledNavbar>
